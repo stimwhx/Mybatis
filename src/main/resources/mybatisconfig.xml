@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--会报找不到资源，这时resource直接等于文件名.后缀就可以了-->
+    <properties resource="dataconfig.properties">
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+
+    </properties>
+    <typeAliases>
+        <package name="com.oneobject.modle"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <!--会报找不到资源，这时resource直接等于文件名.后缀就可以了-->
+        <mapper resource="mapper/mapper.xml"/>
+    </mappers>
+</configuration>
